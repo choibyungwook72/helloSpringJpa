@@ -27,13 +27,13 @@ public class CategoryController {
     public String listCategories(Model model) {
         List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
-        return "categoryList.html";
+        return "categoryList";
     }
 
     @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("categoryForm", new CategoryForm());
-        return "categoryForm.html";
+        return "categoryForm";
     }
 
     @PostMapping("/create")

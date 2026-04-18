@@ -1,6 +1,7 @@
 package kr.ac.hansung.cse.controller;
 
 import kr.ac.hansung.cse.model.Category;
+import kr.ac.hansung.cse.model.CategoryForm;
 import kr.ac.hansung.cse.model.Product;
 import kr.ac.hansung.cse.service.CategoryService;
 import org.springframework.stereotype.Controller;
@@ -24,5 +25,11 @@ public class CategoryController {
         List<Category> categories = categoryService.getAllCategories();
         model.addAttribute("categories", categories);
         return "categoryList.html";
+    }
+
+    @GetMapping("/create")
+    public String showCreateForm(Model model) {
+        model.addAttribute("categoryForm", new CategoryForm());
+        return "categoryForm.html";
     }
 }
